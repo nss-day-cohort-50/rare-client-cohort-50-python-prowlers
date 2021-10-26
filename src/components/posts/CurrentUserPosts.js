@@ -1,26 +1,23 @@
-import { React, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export const CurrentUserPosts = () => {
   const [userPosts, setUserPosts] = useState([]);
-  const currentUser = localStorage.getItem("rare_user_id");
+  const currentUser = parseInt(localStorage.getItem("rare_user_id"));
 
   useEffect(() => {
-    return fetch(`http://127.0.0.1:8088/posts?_user_id=${currentUser}`)
-      .then((response) => response.json())
-      .then((data) => setUserPosts(data));
+    fetchCurrentUSerPosts().then((data) => setUserPosts(data));
   }, []);
 
+  const fetchCurrentUSerPosts = () => {
+    return fetch(`http://localhost:8088/posts?user_id=${currentUser}`).then(
+      (response) => response.json()
+    );
+  };
   return (
     <>
       <div className="post_container">
         {userPosts?.map((post) => {
-          return (
-            <div>
-              {post?.title}
-              {post?.image_url}
-              {post?.content}
-            </div>
-          );
+          return post?.title;
         })}
       </div>
     </>
