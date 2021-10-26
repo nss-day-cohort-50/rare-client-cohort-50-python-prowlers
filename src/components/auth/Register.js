@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { HumanDate } from "../utils/HumanDate";
 import "./Auth.css";
 
@@ -11,6 +11,7 @@ export const Register = (props) => {
   const password = useRef();
   const verifyPassword = useRef();
   const passwordDialog = useRef();
+  const history = useHistory();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -37,10 +38,10 @@ export const Register = (props) => {
         body: JSON.stringify(newUser),
       })
         .then((res) => res.json())
-        .then((res) => {
-          if ("valid" in res && res.valid) {
-            localStorage.setItem("rare_user_id", res.id);
-            props.history.push("/");
+        .then((createdUser) => {
+          if (createdUser.hasOwnProperty("id")) {
+            localStorage.setItem("rare_user_id", createdUser.id);
+            history.push("/");
           }
         });
     } else {
