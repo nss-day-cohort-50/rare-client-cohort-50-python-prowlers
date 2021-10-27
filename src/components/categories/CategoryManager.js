@@ -18,3 +18,10 @@ export const addCategories = category => {
     })
         .then(getCategories)
 }
+
+export const deleteCategory = (categoryId) => {
+    return fetch(`http://localhost:8088/categories/${categoryId}`, {
+        method: "DELETE"
+    })
+    .then(getCategories)
+}

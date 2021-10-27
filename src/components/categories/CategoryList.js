@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Link, useHistory } from "react-router-dom"
-import { getCategories } from "./CategoryManager"
+import { getCategories, deleteCategory } from "./CategoryManager"
 
 export const CategoryList = () => {
     const [ categories, setCategory ] = useState([])
@@ -19,7 +19,9 @@ export const CategoryList = () => {
                 {
                     categories.map(category => {
                         return <h2>
-                            <button>edit</button> <button>delete</button> {category.label}
+                            <button>edit</button> 
+                            <button onClick={() => deleteCategory(category.id).then(() => history.push("/categories"))}> Delete </button>
+                            {category.label}
                             </h2>
                     })
                 }
