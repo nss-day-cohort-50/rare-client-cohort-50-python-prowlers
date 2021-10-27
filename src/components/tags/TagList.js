@@ -13,9 +13,11 @@ export const TagList = () => {
         <>
             <ul className="tag_list">
             {
-                tags?.map((tag) => {
-                    return <li className="tag" key={tag?.id}>{tag?.label}</li>
-                })
+                tags?.map((tag) => 
+                    <li className="tag" key={tag?.id}>{tag?.label}
+                        <button onClick={() => { deleteTag(tag.id) }}>Delete</button>
+                    </li>
+                )
             }
             </ul>
         </>
