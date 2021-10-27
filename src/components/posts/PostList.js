@@ -19,17 +19,23 @@ export const PostList = () => {
     <>
       <table>
         <tr>
-          <th>title</th>
+          <th>Title</th>
           <th>Author</th>
           <th>Date</th>
           <th>Category</th>
           <th>Tags</th>
         </tr>
-        <tr>
-          {posts.map((post) => {
-            return <td></td>;
-          })}
-        </tr>
+        {posts.map((post) => {
+          return (
+            <tr>
+              <td>{post?.title}</td>
+              <td>{`${post?.user.first_name} ${post?.user.last_name}`}</td>
+              <td>{post?.publication_date}</td>
+              <td>{post?.category.label}</td>
+              <td>post tags here</td>
+            </tr>
+          );
+        })}
       </table>
     </>
   );
