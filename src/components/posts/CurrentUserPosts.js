@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./posts.css";
 
 export const CurrentUserPosts = () => {
   const [userPosts, setUserPosts] = useState([]);
@@ -27,7 +28,9 @@ export const CurrentUserPosts = () => {
                 <div className="post_image">{post?.image_url}</div>
               </div>
               <div className="bottom">
-                <div className="post_author"></div>
+                <div className="post_author">
+                  {`${post?.user?.first_name} ${post?.user?.last_name}`}
+                </div>
                 <div className="post_reaction"></div>
               </div>
             </div>
