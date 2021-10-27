@@ -17,8 +17,8 @@ export const PostList = () => {
 
   return (
     <>
-      <table>
-        <tr>
+      <table className="post_list">
+        <tr className="headings">
           <th>Title</th>
           <th>Author</th>
           <th>Date</th>

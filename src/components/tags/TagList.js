@@ -14,8 +14,8 @@ export const TagList = () => {
         <>
             <ul className="tag_list">
             {
-                tags.map((tag) => {
-                    return <li className="tag" key={tag.id}>{tag.label}</li>
+                tags?.map((tag) => {
+                    return <li className="tag" key={tag?.id}>{tag?.label}</li>
                 })
             }
             </ul>
