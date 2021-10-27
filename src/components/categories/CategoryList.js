@@ -14,14 +14,13 @@ export const CategoryList = () => {
 
     return (
         <>
-        <h2>Categories</h2>
         <div style={{margin: "0rem 3rem"}}>
             <article className="post__title__categories">
                 {
                     categories.map(category => {
-                        return <h1>
+                        return <h2>
                             <button>edit</button> <button>delete</button> {category.label}
-                            </h1>
+                            </h2>
                     })
                 }
             </article>
