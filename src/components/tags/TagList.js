@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react"
-import { getAllTags } from "./TagProvider"
+import React, { useContext, useEffect } from "react"
+import { TagsContext } from "./TagProvider"
 
 
 export const TagList = () => {
-    const [tags, updateTags] = useState([])
+    const { tags, setTags, getTags, createTag, deleteTag } = useContext(TagsContext)
 
     useEffect(() => {
-        getAllTags()
-        .then((data) => updateTags(data))
+        getTags()
     }, [])
 
     return (
         <>
             <ul className="tag_list">
             {
-                tags?.map((tag) => {
-                    return <li className="tag" key={tag?.id}>{tag?.label}</li>
-                })
+                tags?.map((tag) => 
+                    <li className="tag" key={tag?.id}>{tag?.label}
+                        <button onClick={() => { deleteTag(tag.id) }}>Delete</button>
+                    </li>
+                )
             }
             </ul>
         </>

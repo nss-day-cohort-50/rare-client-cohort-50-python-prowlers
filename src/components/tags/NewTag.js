@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
+import { TagsContext } from "./TagProvider"
 import "./Tags.css"
 
 
@@ -7,6 +8,7 @@ export const CreateTag = () => {
     const [newTag, updateNewTag] = useState({
         label: ""
     })
+    const { tags, setTags, getTags } = useContext(TagsContext)
 
     const saveNewTag = (event) => {
         event.preventDefault()
@@ -24,6 +26,7 @@ export const CreateTag = () => {
         }
 
         return fetch(`http://localhost:8088/tags`, fetchOption)
+            .then(() => {getTags()})
     }
 
 
