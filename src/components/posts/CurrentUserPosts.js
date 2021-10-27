@@ -15,9 +15,9 @@ export const CurrentUserPosts = () => {
   };
   return (
     <>
-      <div className="post_container">
+      <div className="post_feed">
         {userPosts?.map((post) => {
-          return post?.title;
+          return <div className="post_container"></div>;
         })}
       </div>
     </>
