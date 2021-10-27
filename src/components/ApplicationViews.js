@@ -1,6 +1,6 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { CategoryList } from "./categories/CategoryList"
+import { Category } from "./categories/Category"
 import { CommentList } from "./comment/CommentList"
 import { CurrentUserPosts } from "./posts/CurrentUserPosts";
 import { Tags } from "./tags/Tags"
@@ -16,7 +16,7 @@ export const ApplicationViews = () => {
                 <CommentList />
             </Route>
             <Route exact path="/categories">
-                <CategoryList />
+                <Category />
             </Route>
             <Route exact path="/myposts">
                 <CurrentUserPosts />
