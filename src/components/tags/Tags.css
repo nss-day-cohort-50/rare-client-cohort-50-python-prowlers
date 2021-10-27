@@ -1,0 +1,20 @@
+
+
+article.tag_manager {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+section.new_tag {
+    border: solid black;
+    border-radius: 15%;
+    padding: 2rem;
+}
+
+div.newTag_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
