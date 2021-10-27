@@ -21,3 +21,12 @@
   display: flex;
   justify-content: space-between;
 }
+
+.post_list {
+}
+
+table,
+th,
+td {
+  border: 1px black solid;
+}

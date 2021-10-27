@@ -29,9 +29,19 @@ export const CurrentUserPosts = () => {
               </div>
               <div className="bottom">
                 <div className="post_author">
-                  {`${post?.user?.first_name} ${post?.user?.last_name}`}
+                  {`Author: ${post?.user?.first_name} ${post?.user?.last_name}`}
                 </div>
-                <div className="post_reaction"></div>
+                <div className="post_reaction">
+                  {
+                    (post.id = currentUser ? (
+                      <div>
+                        Reactions go here. Edit and delete buttons go here.
+                      </div>
+                    ) : (
+                      <div>Reactions go here.</div>
+                    ))
+                  }
+                </div>
               </div>
             </div>
           );
