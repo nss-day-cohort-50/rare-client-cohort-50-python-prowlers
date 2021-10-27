@@ -2,6 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { CategoryList } from "./categories/CategoryList"
 import { CommentList } from "./comment/CommentList"
+import { Tags } from "./tags/Tags"
 
 export const ApplicationViews = () => {
     return (
@@ -15,6 +16,9 @@ export const ApplicationViews = () => {
             </Route>
             <Route exact path="/categories">
                 <CategoryList />
+            </Route>
+            <Route exact path="/tags">
+                <Tags />
             </Route>
         </main>
 
