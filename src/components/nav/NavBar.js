@@ -13,12 +13,22 @@ export const NavBar = () => {
       </li>
       <li className="navbar__item">
         <Link className="navbar__link" to="/">
-          Posts
+          All Posts
         </Link>
       </li>
       <li className="navbar__item">
-        <Link className="navbar__link" to={`/myposts`}>
+        <Link className="navbar__link" to="/myPosts">
           My Posts
+        </Link>
+      </li>
+      <li className="navbar__item">
+        <Link className="navbar__link" to="/categories">
+          Category Manager
+        </Link>
+      </li>
+      <li className="navbar__item">
+        <Link className="navbar__link" to="/tags">
+          Tag Manager
         </Link>
       </li>
       {localStorage.getItem("rare_user_id") !== null ? (
