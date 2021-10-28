@@ -16,6 +16,7 @@ export const TagList = () => {
                 tags?.map((tag) => 
                     <li className="tag" key={tag?.id}>{tag?.label}
                         <button onClick={() => { deleteTag(tag.id) }}>Delete</button>
+                        <button>Edit</button>
                     </li>
                 )
             }
