@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./posts.css";
 
 export const PostList = () => {
@@ -28,7 +29,9 @@ export const PostList = () => {
         {posts.map((post) => {
           return (
             <tr>
-              <td>{post?.title}</td>
+              <td>
+                <Link to={`/postDetail/${post.id}`}>{post?.title}</Link>
+              </td>
               <td>{`${post?.user.first_name} ${post?.user.last_name}`}</td>
               <td>{post?.publication_date}</td>
               <td>{post?.category.label}</td>

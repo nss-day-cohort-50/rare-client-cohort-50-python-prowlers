@@ -5,7 +5,7 @@ import { PostList } from "./posts/PostList";
 import { Category } from "./categories/Category";
 import { CurrentUserPosts } from "./posts/CurrentUserPosts";
 import { Tags } from "./tags/Tags";
-import { CategoryProvider } from "./categories/CatProvider";
+import { PostDetail } from "./posts/PostDetail";
 
 export const ApplicationViews = () => {
   return (
@@ -19,11 +19,14 @@ export const ApplicationViews = () => {
         <Route exact path="/comments">
           <CommentList />
         </Route>
-        <Route exact path="/myposts">
+        <Route exact path="/myPosts">
           <CurrentUserPosts />
         </Route>
         <Route exact path="/postList">
           <PostList />
+        </Route>
+        <Route exact path="/postDetail/:postId(\d+)">
+          <PostDetail />
         </Route>
         <Route exact path="/categories">
           <Category />
