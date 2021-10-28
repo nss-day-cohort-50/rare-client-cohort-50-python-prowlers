@@ -7,6 +7,7 @@ import { CurrentUserPosts } from "./posts/CurrentUserPosts";
 import { Tags } from "./tags/Tags";
 import { PostDetail } from "./posts/PostDetail";
 import { EditTag } from "./tags/EditTag";
+import { EditCategory } from "./categories/EditCategory";
 
 export const ApplicationViews = () => {
   return (
@@ -30,6 +31,10 @@ export const ApplicationViews = () => {
           <PostDetail />
         </Route>
         <Route exact path="/categories">
+          <Category />
+        </Route>
+        <Route exact path="/categories/edit/:categoryId(\d+)">
+          <EditCategory />
           <Category />
         </Route>
         <Route exact path="/tags">
