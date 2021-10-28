@@ -5,10 +5,12 @@ import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { TagsProvider } from "./tags/TagProvider"
+import { CategoryProvider } from "./categories/CatProvider"
 
 export const Rare = () => (
     <>
         <TagsProvider>
+        <CategoryProvider>
             <Route render={() => {
                 if (localStorage.getItem("rare_user_id")) {
                     return <>
@@ -19,6 +21,7 @@ export const Rare = () => (
                     return <Redirect to="/login" />
                 }
             }} />
+        </CategoryProvider>
         </TagsProvider>
         
         <Route path="/login" render={() => {
