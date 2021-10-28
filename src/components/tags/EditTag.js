@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import { useParams } from "react-router"
+import { Link, useHistory, useParams } from "react-router-dom"
 import { TagsContext } from "./TagProvider"
 import "./Tags.css"
 
@@ -11,9 +11,10 @@ export const EditTag = () => {
     })
     const { editTag } = useContext(TagsContext)
     const { tagId } = useParams()
+    const history = useHistory()
 
     useEffect( () => {
-        return fetch(`http://localhost:8088/tags/${tagId}`)
+        fetch(`http://localhost:8088/tags/${tagId}`)
             .then(res => res.json())
             .then((data) => {setTag(data)})
     },[]
@@ -22,6 +23,7 @@ export const EditTag = () => {
 
     return (
         <>
+            <section className="edit_tag">
                 <div className="editTag_form">
                 <h2>Edit Tag</h2>
                     <form className="editTag">
@@ -42,11 +44,15 @@ export const EditTag = () => {
                                 />
                             </div>
                         </fieldset>
-                        <button className="updateTag" onClick={() => { editTag(tagId, tag.label) }}>
+                        <button className="editTag" onClick={() => { history.push("/tags") }}>
+                            Cancel
+                        </button>
+                        <button className="updateTag" onClick={(event) => { event.preventDefault(); editTag(tagId, tag.label) }}>
                             Update
                         </button>
                     </form>
                 </div>
+            </section>
         </>
     )
 }

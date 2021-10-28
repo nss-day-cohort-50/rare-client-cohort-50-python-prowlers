@@ -45,7 +45,7 @@ export const TagsProvider = (props) => {
         }
 
         return fetch(`http://localhost:8088/tags/${tagId}`, fetchOption)
-                .then(() => { history.push("/tags") })
+            .then(() => { history.push("/tags") })
     }
 
     const deleteTag = (id) => {
