@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { useHistory } from "react-router-dom"
+import React, { useContext, useState } from "react"
+import { CategoryContext } from "./CatProvider"
 import "./Categories.css"
 
 
@@ -9,7 +9,7 @@ export const CategoryForm = () => {
     const [newCategory, updateNewCategory] = useState({
         label: ""
     })
-    const history = useHistory()
+    const { categories, setCategories, getCategories } = useContext(CategoryContext)
 
     const saveNewCategory = (event) => {
         event.preventDefault()
@@ -28,7 +28,7 @@ export const CategoryForm = () => {
 
         return fetch(`http://localhost:8088/categories`, fetchOption)
             .then(() => {
-                history.push("/categories")
+                getCategories()
             })
     }
 

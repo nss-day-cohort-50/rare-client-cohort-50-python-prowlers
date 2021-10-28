@@ -1,11 +1,11 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { CategoryList } from "./categories/CategoryList";
 import { CommentList } from "./comment/CommentList";
 import { PostList } from "./posts/PostList";
 import { Category } from "./categories/Category";
 import { CurrentUserPosts } from "./posts/CurrentUserPosts";
 import { Tags } from "./tags/Tags";
+import { CategoryProvider } from "./categories/CatProvider";
 
 export const ApplicationViews = () => {
   return (
