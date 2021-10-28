@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react"
-import { Link, useHistory } from "react-router-dom"
-import { getCategories } from "./CategoryManager"
+import React, { useState, useEffect, useContext } from "react"
+import { CategoryContext } from "./CatProvider"
 
 export const CategoryList = () => {
-    const [ categories, setCategory ] = useState([])
-    const history = useHistory()
+    const {categories, setCategories, getCategories, deleteCategory, createCategories} = useContext(CategoryContext)
 
     useEffect(
         () => {
         getCategories()
-        .then(data => setCategory(data))
     }, [])
 
     return (
@@ -19,7 +16,9 @@ export const CategoryList = () => {
                 {
                     categories.map(category => {
                         return <h2>
-                            <button>edit</button> <button>delete</button> {category.label}
+                            <button>edit</button> 
+                            <button onClick={() => deleteCategory(category.id)}> Delete </button>
+                            {category.label}
                             </h2>
                     })
                 }
