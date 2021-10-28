@@ -1,4 +1,5 @@
 import React, { useState, createContext } from "react"
+import { useHistory } from "react-router"
 
 // The context is imported and used by individual components that need data
 export const CategoryContext = createContext()
@@ -6,6 +7,7 @@ export const CategoryContext = createContext()
 // This component establishes what data can be used.
 export const CategoryProvider = (props) => {
     const [categories, setCategories] = useState([])
+    const history = useHistory()
 
     const getCategories = () => {
         return fetch(`http://localhost:8088/categories`)
@@ -30,6 +32,22 @@ export const CategoryProvider = (props) => {
         return fetch(`http://localhost:8088`, fetchOption)
     }
 
+    const editCategory = (categoryId, label) => {
+
+        const fetchOption = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                label: label
+            })
+        }
+
+        return fetch(`http://localhost:8088/categories/${categoryId}`, fetchOption)
+            .then(() => { history.push("/categories") })
+    }
+
     const deleteCategory = (id) => {
 
         return fetch(`http://localhost:8088/categories/${id}`, {
@@ -41,7 +59,7 @@ export const CategoryProvider = (props) => {
 
     return (
         <CategoryContext.Provider value={{
-            categories, setCategories, getCategories, createCategories, deleteCategory
+            categories, setCategories, getCategories, createCategories, editCategory, deleteCategory
         }}>
             {props.children}
         </CategoryContext.Provider>
