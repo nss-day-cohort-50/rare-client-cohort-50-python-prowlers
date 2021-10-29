@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from "react"
+import { useHistory } from "react-router"
 import { CategoryContext } from "./CatProvider"
 
 export const CategoryList = () => {
     const {categories, setCategories, getCategories, deleteCategory, createCategories} = useContext(CategoryContext)
-
+    const history = useHistory()
     useEffect(
         () => {
         getCategories()
@@ -16,7 +17,7 @@ export const CategoryList = () => {
                 {
                     categories.map(category => {
                         return <h2>
-                            <button>edit</button> 
+                            <button onClick={() => { history.push( `/categories/edit/${category.id}`) }}>Edit</button>
                             <button onClick={() => deleteCategory(category.id)}> Delete </button>
                             {category.label}
                             </h2>
