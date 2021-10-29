@@ -124,7 +124,7 @@ export const CreatePost = () => {
 
                         </fieldset>
                         <fieldset className="newPost_tag">
-                                    <p>tag checkboxes</p>
+                                    <p>tag checkboxes placeholder</p>
                         </fieldset>
                         <button className="newPost" onClick={savePost}>
                             Publish
