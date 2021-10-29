@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./posts.css";
 
 export const PostDetail = () => {
@@ -25,12 +25,13 @@ export const PostDetail = () => {
 
   return (
     <>
-      {console.log(tags)}
       <div className="detail_main">
         <div className="detail_container">
           {post.user_id === currentUser ? (
             <div className="detail_header">
-              <div className="header_user">Delete and Edit btns</div>
+              <div className="header_user">
+                Delete <Link>Edit</Link>
+              </div>
               <div className="header_title">
                 <h1>{post.title}</h1>
               </div>
@@ -55,11 +56,11 @@ export const PostDetail = () => {
             <div className="detail_reactions">post reactions here</div>
           </div>
           <div className="detail_content">{post.content}</div>
-          <div className="detail_tags">
-            {tags.map((tag) => {
-              return <p>{tag?.tag.label}</p>;
-            })}
-          </div>
+        </div>
+        <div className="detail_tags">
+          {tags.map((tag) => {
+            return <p>{tag?.tag.label}</p>;
+          })}
         </div>
       </div>
     </>
