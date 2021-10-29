@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router";
 import "./posts.css";
 
 export const CurrentUserPosts = () => {
   const [userPosts, setUserPosts] = useState([]);
   const currentUser = parseInt(localStorage.getItem("rare_user_id"));
+  const history = useHistory()
 
   useEffect(() => {
     fetchCurrentUSerPosts().then((data) => setUserPosts(data));
@@ -16,6 +18,9 @@ export const CurrentUserPosts = () => {
   };
   return (
     <>
+      <div>
+        <button onClick={() => { history.push("/NewPost") }}>New Post</button>
+      </div>
       <div className="post_feed">
         {userPosts?.map((post) => {
           return (

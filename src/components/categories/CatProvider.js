@@ -12,7 +12,7 @@ export const CategoryProvider = (props) => {
     const getCategories = () => {
         return fetch(`http://localhost:8088/categories`)
         .then(res => res.json())
-        .then(setCategories)
+        .then((data) => setCategories(data))
     }
 
     const createCategories = (label) => {

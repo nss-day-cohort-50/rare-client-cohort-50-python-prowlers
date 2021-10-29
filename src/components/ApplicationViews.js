@@ -7,6 +7,7 @@ import { CurrentUserPosts } from "./posts/CurrentUserPosts";
 import { Tags } from "./tags/Tags";
 import { PostDetail } from "./posts/PostDetail";
 import { EditTag } from "./tags/EditTag";
+import { CreatePost } from "./posts/CreatePost";
 import { EditCategory } from "./categories/EditCategory";
 
 export const ApplicationViews = () => {
@@ -29,6 +30,9 @@ export const ApplicationViews = () => {
         </Route>
         <Route exact path="/postDetail/:postId(\d+)">
           <PostDetail />
+        </Route>
+        <Route exact path="/NewPost">
+          <CreatePost />
         </Route>
         <Route exact path="/categories">
           <Category />
